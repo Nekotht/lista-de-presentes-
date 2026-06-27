@@ -48,10 +48,10 @@
         }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 antialiased overflow-x-hidden">
+<body class="bg-stone-50 text-stone-800 antialiased overflow-x-hidden pt-20">
 
-    <!-- Navegação Superior -->
-      <nav class="fixed w-full bg-white/85 backdrop-blur-md shadow-sm z-40 border-b border-stone-100 transition-all duration-300">
+    <!-- Navegação Superior Estável e Leve -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-sm z-40 border-b border-stone-100">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex justify-between items-center h-20">
                 <a href="#inicio" class="text-2xl font-serif text-rose-600 font-bold tracking-widest hover:opacity-80 transition-opacity">
@@ -83,7 +83,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="pt-24 min-h-[85vh] flex items-center justify-center bg-stone-100/50 relative overflow-hidden">
+    <section id="inicio" class="min-h-[85vh] flex items-center justify-center bg-stone-100/50 relative overflow-hidden">
         <!-- Background Decorativo -->
         <div class="absolute inset-0 opacity-[0.15] pointer-events-none bg-dots"></div>
         <div class="absolute top-1/4 left-10 w-64 h-64 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
@@ -155,7 +155,7 @@
                 <i class="ph-fill ph-heart text-2xl animate-pulse"></i>
             </div>
             <p class="text-3xl font-serif text-white tracking-widest mb-4">Thais & Matheus</p>
-            <p class="text-stone-500 max-w-sm mx-auto mb-8 text-sm leading-relaxed">Deixem os presentes chatos de lado, o carinho e a alegria de vocês são as únicas coisas obrigatórias!</p>
+            <p class="text-stone-500 max-w-sm mx-auto mb-8 text-sm leading-relaxed">Deixem os de lado os presentes chatos, o carinho e a alegria de vocês são as únicas coisas obrigatórias!</p>
             <div class="border-t border-stone-800 pt-8 text-xs text-stone-600">
                 &copy; 2026 Thais & Matheus - Todos os direitos reservados.
             </div>
@@ -275,9 +275,8 @@
             });
         });
 
-        // --- CONTAGEM DECRESCENTE (22 de Agosto de 2026 às 19:00:00) ---
-        // Utilizando os parâmetros (Ano, Mês [0-11], Dia, Hora, Minuto, Segundo)
-        // Mês 7 = Agosto no JavaScript
+        // --- CONTAGEM DECRESCENTE ESTÁVEL (22 de Agosto de 2026 às 19:00:00) ---
+        // Utilizando os parâmetros numéricos consistentes para não travar nos navegadores
         const dataCasamento = new Date(2026, 7, 22, 19, 0, 0).getTime();
 
         const updateCountdown = () => {
@@ -295,137 +294,137 @@
 
             const dias = Math.floor(diferenca / umDia);
             const horas = Math.floor((diferenca % umDia) / umaHora);
-            const minutos = Math.floor((diferenca % umaHora) / umMinuto);
+            const minutes = Math.floor((diferenca % umaHora) / umMinuto);
             const segundos = Math.floor((diferenca % umMinuto) / 1000);
 
             document.getElementById('dias').textContent = String(dias).padStart(2, '0');
             document.getElementById('horas').textContent = String(horas).padStart(2, '0');
-            document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+            document.getElementById('minutos').textContent = String(minutes).padStart(2, '0');
             document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
         };
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // --- LISTA DOS 17 PRESENTES ENGRAÇADOS (Editáveis aqui no código) ---
+        // --- LISTA DOS 17 PRESENTES ENGRAÇADOS (Com links locais de imagens) ---
         const presentes = [
             { 
                 id: 1, 
                 nome: 'Adote um Boleto de Casamento', 
                 preco: 'R$ 100,00', 
-                img: 'https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&w=600&q=80',
+                img: 'img/boleto.jpg',
                 detalhe: 'O amor é lindo, mas as faturas do cartão de crédito não se pagam sozinhas. Faça uma ação de caridade adotando um boleto!'
             },
             { 
                 id: 2, 
                 nome: '2 reais pro passeio misterioso', 
                 preco: 'R$ 2,00', 
-                img: 'https://images.unsplash.com/photo-1580519542036-ed47f3e42d1c?auto=format&fit=crop&w=600&q=80',
+                img: 'img/passeio.jpg',
                 detalhe: 'A única certeza é que com dois reais a gente não vai muito longe, mas a diversão está garantida!'
             },
             { 
                 id: 3, 
                 nome: 'Mochila para a Thais carregar só o necessário', 
                 preco: 'R$ 50,00', 
-                img: 'https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=600&q=80',
+                img: 'img/mochila.jpg',
                 detalhe: 'Um item patrocinado pelo noivo, que tem a doce ilusão de que a Thais vai aprender a viajar só com a bagagem de mão! Colabore com essa causa.'
             },
             { 
                 id: 4, 
                 nome: 'Fantasia sexy para a noite de núpcias', 
                 preco: 'R$ 50,00', 
-                img: 'https://images.unsplash.com/photo-1521404975200-c9a997d9fc89?auto=format&fit=crop&w=600&q=80',
+                img: 'img/fantasia.jpg',
                 detalhe: 'O plano era uma lingerie de renda, luz de velas e um clima romântico. A realidade? Duas pessoas exaustas, lutando para tirar 80 grampos do cabelo da noiva e as abotoaduras do noivo. Prometemos tentar ficar acordados por pelo menos 15 minutos para estrear o visual.'
             },
             { 
                 id: 5, 
                 nome: 'Vamos morar no camping', 
                 preco: 'R$ 50,00', 
-                img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80',
+                img: 'img/camping.jpg',
                 detalhe: 'Se tudo der errado, pelo menos teremos barracas chiques de camping e muita natureza.'
             },
             { 
                 id: 6, 
                 nome: 'Auxílio Dreads pro Matheus', 
                 preco: 'R$ 45,00', 
-                img: 'https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&w=600&q=80',
+                img: 'img/dreads.jpg',
                 detalhe: 'Cada real doado aqui vai direto para a trancista, garantindo que o Matheus não precise apelar para o cabelo de Iguana de novo e a Thais pedir o divórcio por causa disso.'
             },
             { 
                 id: 7, 
                 nome: 'Cueca para Lua de Mel', 
                 preco: 'R$ 50,00', 
-                img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80',
+                img: 'img/cueca.jpg',
                 detalhe: 'Por que só as noivas ganham lingerie? O Matheus também merece algo chique. Esse fundo é para garantir que o Matheus não apareça na noite de núpcias usando uma cueca sem elástico.'
             },
             { 
                 id: 8, 
                 nome: 'Primeiro jantar dos noivos', 
                 preco: 'R$ 100,00', 
-                img: 'https://images.unsplash.com/photo-1528190336454-13cd56b45b5a?auto=format&fit=crop&w=600&q=80',
+                img: 'img/jantar.jpg',
                 detalhe: 'A festa acabou, os convidados foram embora e a geladeira da casa nova está completamente vazia. Socorro! Esse item é o fundo de emergência para salvar os noivos da fome no primeiro dia de casados.'
             },
             { 
                 id: 9, 
                 nome: 'Aumente suas chances de pegar o buquê', 
                 preco: 'R$ 80,00', 
-                img: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80',
+                img: 'img/buque.jpg',
                 detalhe: 'Se o Santo Antônio não está colaborando, o jeito é apelar para o suborno! Essa cota é para quem tá afim de garantir uma vantagem competitiva na hora do buquê.'
             },
             { 
                 id: 10, 
                 nome: 'Tênis de corrida pro Matheus', 
                 preco: 'R$ 100,00', 
-                img: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80',
-               detalhe: 'Para o Matheus não ficar para trás nos treinos e conseguir atualizar o Strava com dignidade, ele precisa de um olympikus de respeito. Ajude a financiar o tênis que vai aguentar o tranco.'
+                img: 'img/tenis.jpg',
+                detalhe: 'Para o Matheus não ficar para trás nos treinos e conseguir atualizar o Strava com dignidade, ele precisa de um olympikus de respeito. Ajude a financiar o tênis que vai aguentar o tranco.'
             },
             { 
                 id: 11, 
                 nome: 'Vaquinha pra arrumar a moto depois do acidente', 
                 preco: 'R$ 50,00', 
-                img: 'https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&w=600&q=80',
+                img: 'img/moto.jpg',
                 detalhe: 'Casamento é sobre apoiar o outro na alegria, na tristeza e nos ralados de moto! Esse fundo é para consertar o estrago do nosso último encontro inesperado com o chão. Ajude a financiar as peças novas!'
             },
             { 
                 id: 12, 
                 nome: 'Terapia para uma noiva surtada', 
                 preco: 'R$ 50,00', 
-                img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',
-                detalhe: 'Esse item é um ato de caridade para garantir que a Thais chegue ao grande dia sorrindo e não arrancando os cabelos. Contribua e ajude com uma hora de desabafo. O Matheus agradece do fundo do coração!'
+                img: 'img/terapia.jpg',
+                detalhe: 'Esse item é um acto de caridade para garantir que a Thais chegue ao grande dia sorrindo e não arrancando os cabelos. Contribua e ajude com uma hora de desabafo. O Matheus agradece do fundo do coração!'
             },
             { 
                 id: 13, 
                 nome: 'Gravata do noivo', 
                 preco: 'R$ 15,00', 
-                img: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80',
+                img: 'img/gravata.jpg',
                 detalhe: 'Esqueça aquela tradição de picotar o tecido na festa: aqui você garante a integridade da gravata do noivo. Ajude o Matheus a ficar elegante do início ao fim da festa sem precisar sair com a roupa em pedaços!'
             },
             { 
                 id: 14, 
                 nome: 'Só pra não dizer que não dei nada', 
                 preco: 'R$ 30,00', 
-                img: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80',
+                img: 'img/nada.jpg',
                 detalhe: 'Esse item é o famoso "vale-participação". Um valor simbólico só para o seu nome aparecer na nossa lista de agradecimentos e você poder comer os docinhos da festa com a cabeça tranquila.'
             },
             { 
                 id: 15, 
                 nome: 'Ajuda para Thais ter paciência com o Matheus', 
                 preco: 'R$ 30,00', 
-                img: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=600&q=80',
+                img: 'img/paciencia.jpg',
                 detalhe: 'Esse item é um fundo de investimento para a saúde mental da Thais. Cada real doado aqui garante um minuto a mais de paciência com o Matheus (o que todos sabemos que não é fácil).'
             },
             { 
                 id: 16, 
                 nome: 'Vale tanque cheio', 
                 preco: 'R$ 75,00', 
-                img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80',
+                img: 'img/tanque.jpg',
                 detalhe: 'Esse item é o verdadeiro passaporte para a nossa lua de mel. Ajude a abastecer a motoca para a gente poder pegar a estrada rumo ao destino dos nossos sonhos sem precisar contar moedinhas. Patrocine os nossos primeiros quilômetros de casados!'
             },
             { 
                 id: 17, 
                 nome: 'Para levar um convidado que não foi convidado', 
                 preco: 'R$ 100,00', 
-                img: 'https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=600&q=80',
+                img: 'img/convidado.jpg',
                 detalhe: 'Nosso coração é grande, mas o buffet cobra por cabeça! Se você faz questão de levar aquele seu primo de segundo grau, o seu vizinho ou um ficante de três dias, pague aqui a "Taxa de Inclusão".'
             }
         ];
@@ -437,7 +436,6 @@
             const card = document.createElement('div');
             card.className = 'bg-white rounded-3xl border border-stone-200/60 overflow-hidden shadow-sm flex flex-col hover:shadow-lg transition-all duration-300 group';
             
-            // Usar uma imagem em branco ou um fallback engraçado caso não tenha URL
             const urlImagem = item.img ? item.img : 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80';
 
             card.innerHTML = `
@@ -514,13 +512,11 @@
             }
         });
 
-        // Configuração do botão de cópia direta usando o API moderna (navigator.clipboard)
+        // Configuração do botão de cópia direta usando a API moderna (navigator.clipboard)
         btnCopyPix.addEventListener('click', () => copiarTexto(DADOS_CASAMENTO.chavePix));
 
         async function copiarTexto(texto) {
             try {
-                // Algumas restrições de navegadores podem bloquear caso não haja contexto seguro,
-                // mas essa é a forma moderna e preferida.
                 await navigator.clipboard.writeText(texto);
 
                 mostrarToast();
@@ -532,8 +528,7 @@
                 }, 2000);
 
             } catch (err) {
-                // Fallback de erro
-                alert("Não foi possível copiar a chave PIX automaticamente. Você pode selecionar e copiar o texto acima manualmente.");
+                alert("Não foi possível copiar a chave PIX automaticamente.");
             }
         }
 
@@ -542,7 +537,11 @@
             if (!presenteSelecionado) return;
             const numeroTelefone = DADOS_CASAMENTO.telefoneNoivaWhatsApp;
             const msg = encodeURIComponent(`Olá Thais e Matheus! Escolhi o presente bem-humorado "${presenteSelecionado.nome}" (${presenteSelecionado.preco}) na lista de casamento de vocês. Já fiz a contribuição simbólica para ajudar! Beijos e abraços!`);
-            window.open(`https://wa.me/${numeroTelefone}?text=${msg}`, '_blank');
+            
+            window.open(
+                `https://wa.me/${numeroTelefone}?text=${msg}`,
+                "_blank"
+            );
         });
 
         // Função para Mostrar Notificação Visual (Toast)
@@ -565,4 +564,3 @@
     </script>
 </body>
 </html>
-
